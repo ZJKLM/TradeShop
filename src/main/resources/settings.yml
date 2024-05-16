@@ -1,0 +1,151 @@
+##########################
+#    TradeShop Config    #
+##########################
+config-version: 1.2
+
+
+# |    System Options    |
+# ^^^^^^^^^^^^^^^^^^^^^^^^
+system-options:
+  # How would you like your servers data stored? (FLATFILE)
+  data-storage-type: FLATFILE
+  # What debug code should be run. This will add significant amounts of spam to the console/log, generally not used unless requested by Devs
+  enable-debug: 0
+  # Should we check for updates when the server starts
+  check-updates: true
+  # Allow us to connect anonymous metrics so we can see how our plugin is being used to better develop it
+  allow-metrics: true
+  # We do not recommend enabling this setting since any editing an admin should need to do can be done without this.
+  # Should players with Admin permission be able to use any commands on any shops?
+  unlimited-admin: false
+  # Should our internal permission system be used? (Only enable if you aren't using a permission plugin)
+  use-internal-permissions: false
+
+
+# |    Language Options    |
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^
+language-options:
+  # The prefix the displays before all plugin messages
+  message-prefix: '&a[&eTradeShop&a] '
+
+
+  # Header Colours, if the codes are showing in the header, set to ""
+  # Color for successfully created and stocked signs
+  shop-good-colour: '&2'
+  # Color for shops that are missing data to make trades
+  shop-incomplete-colour: '&7'
+  # Color for shops that were not successfully created
+  shop-bad-colour: '&4'
+
+
+  # Status Text, What will be shown in the bottom line of shop sign for each status
+  # Open
+  shop-open-status: '&a<Open>'
+  # Closed
+  shop-closed-status: '&c<Closed>'
+  # Incomplete
+  shop-incomplete-status: '&c<Incomplete>'
+  # Out of Stock
+  shop-outofstock-status: '&c<Out Of Stock>'
+
+
+# |    Global Options    |
+# ^^^^^^^^^^^^^^^^^^^^^^^^
+global-options:
+  # Directions an allowed shop can be from a sign. Allowed directions are:
+  # Up, Down, North, East, South, West
+  allowed-directions: [ DOWN, WEST, SOUTH, EAST, NORTH, UP ]
+  # Inventories to allow for shops. Allowed blocks are:
+  # Chest, Trapped_Chest, Dropper, Hopper, Dispenser, Shulker, ...
+  allowed-shops: [ CHEST, TRAPPED_CHEST, SHULKER ]
+  # Max distance a player can be from a shop to edit it
+  max-edit-distance: 4
+  # Can players toggle view of involved shops?
+  allow-toggle-status: true
+  # Should we allow anyone to destroy a shops sign?
+  allow-sign-break: false
+  # Should we allow anyone to destroy a shops storage?
+  allow-chest-break: false
+
+
+  multi-trade:
+    # Should we allow multi trades with shift + click (true/false)
+    enable: true
+    # Default multiplier for trades using shift + click
+    default-multi: 2
+    # Maximum amount a player can set their multiplier to. Not recommended to set any higher than 6 as this can cause bugs with iTrade Shops
+    max-multi: 6
+
+
+# |    Shop Options    |
+# ^^^^^^^^^^^^^^^^^^^^^^
+shop-options:
+  # Maximum users(Managers/Members) a shop can have
+  max-shop-users: 5
+  # Maximum shops that can exist in a single chunk
+  max-shops-per-chunk: 128
+  # Maximum amount of item stacks per side of trade
+  max-items-per-trade-side: 6
+  # Can players purchase from a shop in which they are a user of (true/false)
+  allow-user-purchasing: false
+  # Text that shows on trade signs that contain more than 1 item
+  # Available variables are: %AMOUNT%
+  multiple-items-on-sign: Use '/ts what'
+
+
+# |    Trade Shop Options    |
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+trade-shop-options:
+  # The header that appears at the top of the shop signs, this is also what the player types to create the sign
+  header: Trade
+  # Can explosions damage the shop sign/storage (true/false)
+  allow-explode: false
+  # Can hoppers pull items from the shop storage (true/false)
+  allow-hopper-export: false
+  # Can hoppers push items into the shop storage (true/false)
+  allow-hopper-import: false
+
+
+# |    ITrade Shop Options    |
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+itrade-shop-options:
+  # Name to put on the bottom of iTrade signs
+  owner: Server Shop
+  # The header that appears at the top of the shop signs, this is also what the player types to create the sign
+  header: iTrade
+  # Can explosions damage the shop sign (true/false)
+  allow-explode: false
+  # What text should be used for successful trades when no cost is present
+  no-cost-text: nothing
+
+
+# |    BiTrade Shop Options    |
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bitrade-shop-options:
+  # The header that appears at the top of the shop signs, this is also what the player types to create the sign
+  header: BiTrade
+  # Can explosions damage the shop sign/storage (true/false)
+  allow-explode: false
+  # Can hoppers pull items from the shop storage (true/false)
+  allow-hopper-export: false
+  # Can hoppers push items into the shop storage (true/false)
+  allow-hopper-import: false
+
+
+# |    Illegal Item Options    |
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+illegal-item-options:
+  # Valid Types: DISABLED, BLACKLIST, WHITELIST
+
+  # List for illegal items for both Cost and Product
+  global-illegal-items:
+    type: BLACKLIST
+    list: [ Bedrock, Command_Block, Barrier ]
+  # List for illegal items for only Cost items
+  cost-illegal-items:
+    type: DISABLED
+    list: [ ]
+  # List for illegal items for only Product items
+  product-illegal-items:
+    type: DISABLED
+    list: [ ]
